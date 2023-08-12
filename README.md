@@ -4,9 +4,9 @@ This application is a part of a full-stack application built using MERN stack te
 
 ## `Live Production`
 
-**_NOTE_** This application is still UNDER-CONSTRUCTION
+**_NOTE:_** This application is still UNDER-CONSTRUCTION
 
-As mentioned above, the application is still under-construction, however, you can check out the latest updates via the demo deployed verion here, [Shopping Cart](https://handyshoppingcart.netlify.app)
+As mentioned above, the application is still under-construction, however, you can check out the latest updates via the demo deployed verion here, [Shopping Cart](https://buywithshoppingcart.netlify.app)
 
 ## `Main Dependecies & Techs.`
 
