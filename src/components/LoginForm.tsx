@@ -24,7 +24,7 @@ const LoginForm = () => {
 				.max(255)
 				.required('Password is required')
 		}),
-		onSubmit: async (values, helpers) => {
+		onSubmit: async (_values, helpers) => {
 			try {
 				navigate("/home")
 				toast.success("Successfulyy, logged in")
