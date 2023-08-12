@@ -4,7 +4,7 @@ import { Box } from "@mui/material"
 
 const App = () => {
   return (
-    <Box sx={{ height: "100vh", background: "whitesmoke" }}>
+    <Box sx={{ height: "98vh", background: "whitesmoke" }}>
       <BrowserRouter>
         <Routes>
           {routes.map((route, idx) => {
