@@ -29,3 +29,17 @@ As mentioned above, the application is still under-construction, however, you ca
 - Framer-Motion for light animations.
 
 - React-Toastify
+
+## `Available Scripts`
+
+### `Installing Dependencies`
+
+- yarn
+
+### `Run In Development Mode`
+
+- yarn dev
+
+## `Build For Production`
+
+- yarn build
