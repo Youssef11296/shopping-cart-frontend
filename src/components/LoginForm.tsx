@@ -26,7 +26,8 @@ const LoginForm = () => {
 		}),
 		onSubmit: async (_values, helpers) => {
 			try {
-				navigate("/home")
+				window.localStorage.setItem("token", "sometoken123")
+				navigate("/")
 				toast.success("Successfulyy, logged in")
 			} catch (err: any) {
 				helpers.setStatus({ success: false });

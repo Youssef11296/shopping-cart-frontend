@@ -1,14 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import NotFoundPage from "../pages/NotFoundPage";
 
-export const routes: { path: string; Page: () => JSX.Element }[] = [
+export const routes: { path: string; Page: any }[] = [
   {
-    path: "/",
+    path: "/login",
     Page: LoginPage,
   },
   {
-    path: "/home",
+    path: "/",
     Page: HomePage,
   },
   {

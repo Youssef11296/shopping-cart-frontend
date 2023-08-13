@@ -1,4 +1,6 @@
+/* eslint-disable react-refresh/only-export-components */
 import { Typography, Container } from '@mui/material'
+import withAuthGuard from '../hocs/with-auth-guard'
 
 const HomePage = () => {
 	return (
@@ -8,4 +10,4 @@ const HomePage = () => {
 	)
 }
 
-export default HomePage
+export default withAuthGuard(HomePage)

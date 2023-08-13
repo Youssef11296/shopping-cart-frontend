@@ -33,7 +33,8 @@ const RegisterForm = () => {
 		}),
 		onSubmit: async (_values, helpers) => {
 			try {
-				navigate('/home');
+				window.localStorage.setItem("token", "sometoken123")
+				navigate('/');
 				toast.success("Successfully, registered.")
 			} catch (err: any) {
 				helpers.setStatus({ success: false });
