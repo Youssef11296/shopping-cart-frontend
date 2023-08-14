@@ -7,7 +7,7 @@ const LoginPage = () => {
 
 	return (
 		<>
-			<MetaHead title="Home" name="Home Page" content='Welcome to the shopping cart!' />
+			<MetaHead title="Login" name="Login Page" content='Please, login to your account' />
 			<Container sx={{ py: 4 }}>
 				{isLoginForm ? <LoginForm /> : <RegisterForm />}
 				<Box sx={{
