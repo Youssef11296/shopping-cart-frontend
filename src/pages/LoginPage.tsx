@@ -9,7 +9,7 @@ const LoginPage = () => {
 		<>
 			<MetaHead title="Login" name="Login Page" content='Please, login to your account' />
 			<Container sx={{ py: 4 }}>
-				{isLoginForm ? <LoginForm /> : <RegisterForm />}
+				{isLoginForm ? <LoginForm /> : <RegisterForm setIsLoginForm={setIsLoginForm} />}
 				<Box sx={{
 					width: "fit-content",
 					margin: "1rem auto 0"

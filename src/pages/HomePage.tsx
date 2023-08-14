@@ -3,12 +3,17 @@ import { Typography, Container, Button } from '@mui/material'
 import withAuthGuard from '../hocs/with-auth-guard'
 import { MetaHead } from '../components'
 import { useNavigate } from 'react-router-dom'
+import { AppDispatch } from '../context'
+import { useDispatch } from 'react-redux'
+import { logoutUser } from '../context/actions/authActions'
 
 const HomePage = () => {
 	const navigate = useNavigate()
 
+	const dispatch: AppDispatch = useDispatch()
+
 	const logoutHandler = () => {
-		localStorage.removeItem("token")
+		dispatch(logoutUser())
 		navigate("/login")
 	}
 
