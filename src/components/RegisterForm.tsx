@@ -2,11 +2,17 @@
 import { useFormik } from 'formik';
 import { TextField, Button, Grid, Typography, Box, Card } from '@mui/material'
 import * as Yup from 'yup';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { FC } from 'react';
+import { AppDispatch } from '../context';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../context/actions/authActions';
 
-const RegisterForm = () => {
-	const navigate = useNavigate()
+interface Props {
+	setIsLoginForm: (bool: boolean) => void
+}
+
+const RegisterForm: FC<Props> = ({ setIsLoginForm }) => {
+	const dispatch: AppDispatch = useDispatch()
 
 	const formik: any = useFormik({
 		initialValues: {
@@ -31,11 +37,11 @@ const RegisterForm = () => {
 				.max(20)
 				.required('Password is required')
 		}),
-		onSubmit: async (_values, helpers) => {
+		onSubmit: async (values, helpers) => {
 			try {
-				window.localStorage.setItem("token", "sometoken123")
-				navigate('/');
-				toast.success("Successfully, registered.")
+				const { username, email, password } = values
+				dispatch(registerUser({ username, email, password }))
+				setIsLoginForm(true)
 			} catch (err: any) {
 				helpers.setStatus({ success: false });
 				helpers.setErrors({ submit: err.response.data.message });
