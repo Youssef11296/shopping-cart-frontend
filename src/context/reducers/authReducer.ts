@@ -10,12 +10,11 @@ const initialState: {
 };
 
 const authReducer = (state = initialState, action: any) => {
-  switch (action.type) {
+  switch (action?.type) {
     case actionTypes.REGISTER_USER:
       toast.success(action.payload.message);
       return { ...state };
     case actionTypes.LOGIN_USER:
-      console.log({ payload: action.payload });
       localStorage.setItem("token", action.payload.user.token);
       toast.success(action.payload.message);
       return { ...state, user: action.payload.user };

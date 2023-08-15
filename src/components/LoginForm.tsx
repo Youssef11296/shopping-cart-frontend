@@ -5,9 +5,12 @@ import * as Yup from 'yup';
 import { AppDispatch } from '../context';
 import { useDispatch } from 'react-redux'
 import { loginUser } from '../context/actions/authActions';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
 	const dispatch: AppDispatch = useDispatch()
+
+	const navigate = useNavigate()
 
 	const formik: any = useFormik({
 		initialValues: {
@@ -29,6 +32,9 @@ const LoginForm = () => {
 			try {
 				const { email, password } = values
 				dispatch(loginUser({ email, password }))
+				setTimeout(() => {
+					navigate("/")
+				}, 1000)
 			} catch (err: any) {
 				helpers.setStatus({ success: false });
 				helpers.setErrors({ submit: err.response.data.message });

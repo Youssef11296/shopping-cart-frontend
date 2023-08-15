@@ -38,11 +38,10 @@ export const loginUser = (args: LoginUserRequest) => async (dispatch: any) => {
     });
     dispatch(setLoading(false));
   } catch (error: any) {
-    console.log({ error });
     dispatch({
       type: actionTypes.AUTH_ERROR,
       payload: {
-        message: "AUTH ERROR",
+        message: error?.response.data.message,
       },
     });
   }
