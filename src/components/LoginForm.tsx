@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { FC } from "react"
 import { useFormik } from 'formik';
 import { TextField, Button, Grid, Typography, Box, Card } from '@mui/material'
 import * as Yup from 'yup';
@@ -7,7 +8,11 @@ import { useDispatch } from 'react-redux'
 import { loginUser } from '../context/actions/authActions';
 import { useNavigate } from 'react-router-dom';
 
-const LoginForm = () => {
+interface Props {
+	setIsLoginForm: (bool: boolean) => void
+}
+
+const LoginForm: FC<Props> = ({ setIsLoginForm }) => {
 	const dispatch: AppDispatch = useDispatch()
 
 	const navigate = useNavigate()
@@ -33,7 +38,11 @@ const LoginForm = () => {
 				const { email, password } = values
 				dispatch(loginUser({ email, password }))
 				setTimeout(() => {
-					navigate("/")
+					if (window.localStorage.getItem("token")) {
+						navigate("/")
+					} else {
+						setIsLoginForm(false)
+					}
 				}, 1000)
 			} catch (err: any) {
 				helpers.setStatus({ success: false });

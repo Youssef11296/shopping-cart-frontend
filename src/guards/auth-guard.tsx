@@ -12,6 +12,8 @@ const AuthGuard = (props: any) => {
 	useEffect(() => {
 		if (!token) {
 			navigate("/login")
+		} else {
+			navigate("/")
 		}
 	}, [token, navigate])
 
